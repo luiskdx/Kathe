@@ -1,0 +1,40 @@
+.data-bill {
+    display: flex;
+    justify-content: space-between;
+}
+
+.data-bill p {
+margin: 0;
+}
+
+.data-bill h3 {
+    margin: 0;
+}
+    
+.page-final .description {
+    text-align: center;
+}
+
+.type-recycle {
+    margin-top: 30px;
+    padding: 0 155px;
+}
+
+.type-recycle .data-product .product-name {
+    font-weight: bold;
+}
+
+.type-recycle .kind-recycle {
+    width: 159px;
+}
+
+
+.type-recycle .kind-recycle img {
+    height: auto;
+    width: 30px;
+    margin: 0 10px;
+}
+
+.center {
+    text-align: center;
+}

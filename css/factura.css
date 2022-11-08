@@ -1,0 +1,40 @@
+.list-products {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 0 100px;
+}
+
+.list-products .product {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;   
+    align-items: center;
+}
+
+.list-products .product img {
+    height: auto;
+    width: 70px;
+}
+
+.list-products .product .data-product p {
+    margin: 0;
+}
+
+.list-products .product .quantity input {
+    width: 25px;
+    text-align: right;
+}
+
+.total-price {
+    text-align: center;
+}
+
+.total-price .total {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.page-bill .btn-general {
+    margin: 0 10px;
+}

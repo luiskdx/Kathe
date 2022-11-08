@@ -1,0 +1,161 @@
+.form-client{
+    margin-bottom: 30px;
+}
+
+.form-client .container-client{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.form-client .container-client .input-client{
+    border: none;
+    display: block;
+    margin: 10px 5px;
+    padding: 5px;
+}
+
+.form-client .container-client .input-submit{
+    width: 40%;
+    margin: 0 5px;
+}
+
+.form-search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.form-search label{
+    margin-right: 10px;
+}
+
+.form-search .input-search{
+    width: 70%;
+    margin-right: 10px;
+    border: none;
+    padding: 5px;
+}
+
+.form-search .submit-search{
+    padding: 3px 6px;
+    background-color: #ffffff;
+    color: #4d773c;
+    border: 1px solid #4d773c;
+}
+
+.filter-material{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-material .container-select{
+    margin: 0 5px;
+    position: relative;
+    width: 28%;
+}
+
+.filter-material .container-select.select-material{
+    margin-right: 40px;
+}
+
+.filter-material .container-select:after{
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 4px 0 4px;
+    border-color: #030303 transparent transparent transparent;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display:block;
+}
+
+.filter-material .container-select .select-filter{
+    padding: 5px;
+    border: none;
+    width: 100%;
+    appearance: none;
+}
+
+.filter-material .submit-filter{
+    padding: 3px 6px;
+    background-color: #ffffff;
+    color: #4d773c;
+    border: 1px solid #4d773c;
+}
+
+form .select-document{
+    width: 100%;
+    display:block;
+    appearance: none;
+    border:none;
+    padding: 4px 5px;
+    color: #757575;
+    position: relative;
+}
+
+form .input-submit{
+    width: 100px;
+    padding: 8px;
+    background-color: #ffffff;
+    color: #4d773c;
+    border: 1px solid #4d773c;
+}
+
+form .input-submit:hover{
+    background-color: #4d773c;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+}
+
+.products .product {
+    width: 20%;
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+.products .product img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.products .product .product-name {
+    text-align: center;
+    margin-bottom: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.products .product .price {
+    text-align: right;
+}
+
+.products .product .add-cart {
+    border: none;
+    background-color: #d8eb95;
+    padding: 6px;
+    width: 100%;
+}
+
+.container-inputs {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container-inputs input {
+    width: calc(50% - 20px);
+}
