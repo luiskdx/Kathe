@@ -13,18 +13,21 @@ $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 $result = mysqli_query($db, "SELECT * FROM cajeros WHERE email = '".$email."'");
 
 if(mysqli_num_rows($result) > 0) {
+  $_SESSION['form_msg'] = "<p class='error'>Email registrado anteriormente - Registro rechazado.</p>";
+
   header('Location: index.php');
 }
 else {
   $insertRegister = "INSERT INTO cajeros (`id`, `nombre`, `tipo_documento`, `documento`, `telefono`, `email`, `password`, `facturas`) VALUES (NULL, '".$name."', '".$typeDoc."', '".$numberDoc."', '".$phone."', '".$email."', '".$passwordHash."', '')";
 
-  mysqli_query($db, $insertRegister);
-
   if (!$insertRegister) {
     die('Error: ' . mysql_error());
   }
 
+  mysqli_query($db, $insertRegister);
   mysqli_close($db);
 
-  header('Location: productos.php');
+  $_SESSION['form_msg'] = "<p class='ok'>Registro creado exitosamente.</p>";
+
+  header('Location: index.php');
 }

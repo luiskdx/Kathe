@@ -28,13 +28,8 @@
         </nav>
     </header>
     <main class="container-forms">
-        <div class="form-selector">
-            <button class="button-selector" id="showRegister">registrar</button>
-            <button class="button-selector" id="showLogin">iniciar sesion</button>
-        </div>
-
-        <form id="form-register" class="form-register active" action="registro-cajeros.php" method="post">
-            <h2>Regístro para Cajeros</h2>
+        <form id="form-register" class="form-register active" action="registro-clientes.php" method="post">
+            <h2>Regístrar Clientes</h2>
             <input type="text" class="input-register input-name" name="nombres" required="required" placeholder="Digite su nombre y apellido">
             <div class="container-select"> 
                 <select name="tipo_documento" class="select-document">
@@ -46,16 +41,7 @@
             <input type="number" class="input-register input-document" name="numero_documento" required placeholder="Digite su número de documento">
             <input type="tel" class="input-register input-phone" name="telefono" required placeholder="Digite su número de teléfono">
             <input type="email" class="input-register input-email" name="email" required placeholder="Digite su correo electrónico">
-            <input type="password" class="input-register input-document" name="password" required placeholder="Digite su contraseña">
-            <input type="password" class="input-register input-document" required placeholder="Digite su contraseña de nuevo">
             <input type="submit" class="input-register input-submit" name="register" value="Registrar">
-        </form>
-
-        <form id="form-login" class="form-login" action="login.php" method="post">
-            <h2>Iniciar sesion</h2>
-            <input type="email" class="input-login input-email" name="email" required placeholder="Digite su correo electrónico">
-            <input type="password" class="input-login input-document" name="password" required placeholder="Digite su contraseña">
-            <input type="submit" class="input-login input-submit" value="Iniciar sesion">
         </form>
 
         <div class="feedback-msg">
