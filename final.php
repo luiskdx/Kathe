@@ -22,12 +22,12 @@
 <body class="page-final">
     <header>
         <div class="logo">
-            <img src="/img/logo.png" alt="logo del proyecto">
+            <img src="./img/logo.png" alt="logo del proyecto">
         </div>
         <nav>
-            <a href="principal.html" class="nav-link">Inicio</a>
-            <a href="productos.html" class="nav-link">Productos</a>
-            <a href="final.html" class="nav-link">Factura</a>
+            <a href="index.php" class="nav-link">Inicio</a>
+            <a href="productos.php" class="nav-link">Productos</a>
+            <a href="final.php" class="nav-link">Factura</a>
             <div class="total-items">
                 <span>3</span>
             </div>
@@ -64,9 +64,9 @@
                     <input type="number" value="1" disabled>
                 </div>
                 <div class="kind-recycle">
-                    <img src="/img/contenedor-blanco.png" alt="" class="contenedor-blanco">
-                    <img src="/img/contenedor-negro.png" alt="" class="contenedor-negro">
-                    <img src="/img/contenedor-verde.png" alt="" class="contenedor-verde">
+                    <img src="./img/contenedor-blanco.png" alt="" class="contenedor-blanco">
+                    <img src="./img/contenedor-negro.png" alt="" class="contenedor-negro">
+                    <img src="./img/contenedor-verde.png" alt="" class="contenedor-verde">
                 </div>
             </div>
             <div class="product">
@@ -79,9 +79,9 @@
                     <input type="number" value="1" disabled>
                 </div>
                 <div class="kind-recycle">
-                    <img src="/img/contenedor-blanco.png" alt="" class="contenedor-blanco">
-                    <img src="/img/contenedor-negro.png" alt="" class="contenedor-negro">
-                    <img src="/img/contenedor-verde.png" alt="" class="contenedor-verde">
+                    <img src="./img/contenedor-blanco.png" alt="" class="contenedor-blanco">
+                    <img src="./img/contenedor-negro.png" alt="" class="contenedor-negro">
+                    <img src="./img/contenedor-verde.png" alt="" class="contenedor-verde">
                 </div>
             </div>
             <div class="product">
@@ -94,8 +94,8 @@
                     <input type="number" value="1" disabled>
                 </div>
                 <div class="kind-recycle">
-                    <img src="/img/contenedor-blanco.png" alt="" class="contenedor-blanco">
-                    <img src="/img/contenedor-negro.png" alt="" class="contenedor-negro">
+                    <img src="./img/contenedor-blanco.png" alt="" class="contenedor-blanco">
+                    <img src="./img/contenedor-negro.png" alt="" class="contenedor-negro">
                 </div>
             </div>
         </section>   

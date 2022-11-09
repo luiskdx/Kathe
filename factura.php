@@ -20,12 +20,12 @@
 <body class="page-bill">
     <header>
         <div class="logo">
-            <img src="/img/logo.png" alt="logo del proyecto">
+            <img src="./img/logo.png" alt="logo del proyecto">
         </div>
         <nav>
-            <a href="principal.html" class="nav-link">Inicio</a>
-            <a href="productos.html" class="nav-link">Productos</a>
-            <a href="final.html" class="nav-link">Factura</a>
+            <a href="index.php" class="nav-link">Inicio</a>
+            <a href="productos.php" class="nav-link">Productos</a>
+            <a href="final.php" class="nav-link">Factura</a>
             <div class="total-items">
                 <span>0</span>
             </div>
@@ -38,7 +38,7 @@
 
         <section class="list-products">
             <div class="product">
-                <img src="/img/producto.png" alt="">
+                <img src="./img/producto.png" alt="">
                 <div class="data-product">
                     <p class="product-name">nombre producto</p>
                     <p class="price">$20.000</p>
@@ -50,7 +50,7 @@
                 <button class="btn-general">Remover de la cesta</button>
             </div>
             <div class="product">
-                <img src="/img/producto.png" alt="">
+                <img src="./img/producto.png" alt="">
                 <div class="data-product">
                     <p class="product-name">nombre producto</p>
                     <p class="price">$20.000</p>
@@ -62,7 +62,7 @@
                 <button class="btn-general">Remover de la cesta</button>
             </div>
             <div class="product">
-                <img src="/img/producto.png" alt="">
+                <img src="./img/producto.png" alt="">
                 <div class="data-product">
                     <p class="product-name">nombre producto</p>
                     <p class="price">$20.000</p>

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es-co">
 <head>
@@ -22,8 +23,8 @@
         </div>
 
         <nav>
-            <a href="principal.html" class="nav-link">Inicio</a>
-            <a href="productos.html" class="nav-link">Productos</a>
+            <a href="./" class="nav-link">Inicio</a>
+            <a href="productos.php" class="nav-link">Productos</a>
         </nav>
     </header>
     <main class="container-forms">
@@ -32,26 +33,28 @@
             <button class="button-selector" id="showLogin">iniciar sesion</button>
         </div>
 
-        <form id="form-register" class="form-register active" action="" method="post">
-            <h2>Regístrarse</h2>
-            <input type="text" class="input-register input-name" required="required" placeholder="Digite su nombre">
+        <form id="form-register" class="form-register active" action="registro.php" method="post">
+            <h2>Regístrarse como Cajero</h2>
+            <input type="text" class="input-register input-name" name="nombres" required="required" placeholder="Digite su nombre y apellido">
             <div class="container-select"> 
-                <select name="" class="select-document">
-                <option value="">Tipo documento</option>
-                <option value="">Tarjeta de identidad</option>
-                <option value="">Cédula de ciudadania</option>
+                <select name="tipo_documento" class="select-document">
+                    <option value="">Tipo documento</option>
+                    <option value="Tarjeta de identidad">Tarjeta de identidad</option>
+                    <option value="Cédula de ciudadania">Cédula de ciudadania</option>
                 </select>
             </div>
-            <input type="number" class="input-register input-document" required placeholder="Digite su número de documento">
-            <input type="tel" class="input-register input-phone" required placeholder="Digite su número de teléfono">
-            <input type="email" class="input-register input-email" required placeholder="Digite su correo electrónico">
-            <input type="submit" class="input-register input-submit" value="Registrar">
+            <input type="number" class="input-register input-document" name="numero_documento" required placeholder="Digite su número de documento">
+            <input type="tel" class="input-register input-phone" name="telefono" required placeholder="Digite su número de teléfono">
+            <input type="email" class="input-register input-email" name="email" required placeholder="Digite su correo electrónico">
+            <input type="password" class="input-register input-document" name="password" required placeholder="Digite su contraseña">
+            <input type="password" class="input-register input-document" required placeholder="Digite su contraseña de nuevo">
+            <input type="submit" class="input-register input-submit" name="register" value="Registrar">
         </form>
 
-        <form id="form-login" class="form-login" action="" method="post">
+        <form id="form-login" class="form-login" action="login.php" method="post">
             <h2>Iniciar sesion</h2>
-            <input type="email" class="input-login input-email" required placeholder="Digite su correo electrónico">
-            <input type="password" class="input-login input-document" required placeholder="Digite su contraseña">
+            <input type="email" class="input-login input-email" name="email" required placeholder="Digite su correo electrónico">
+            <input type="password" class="input-login input-document" name="password" required placeholder="Digite su contraseña">
             <input type="submit" class="input-login input-submit" value="Iniciar sesion">
         </form>
     </main>

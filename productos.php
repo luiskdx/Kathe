@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['user_id'])):
+    header('Location: index.php');
+    exit;
+else:
+?>
 <!DOCTYPE html>
 <html lang="es-co">
 <head>
@@ -18,12 +26,12 @@
 <body  class="page-products">
     <header>
         <div class="logo">
-            <img src="/img/logo.png" alt="logo del proyecto">
+            <img src="./img/logo.png" alt="logo del proyecto">
         </div>
         <nav>
-            <a href="principal.html" class="nav-link">Inicio</a>
-            <a href="productos.html" class="nav-link">Productos</a>
-            <a href="final.html" class="nav-link">Factura</a>
+            <a href="./" class="nav-link">Inicio</a>
+            <a href="productos.php" class="nav-link">Productos</a>
+            <a href="final.php" class="nav-link">Factura</a>
             <div class="total-items">
                 <span>0</span>
             </div>
@@ -32,7 +40,7 @@
 
     <main class="container-forms">
         <form class="form-client" action="" method="post">
-            <h2>Consultar cliente</h2>
+            <h2>Consultar cliente <?php echo $_SESSION['user_id']; ?></h2>
             <div class="container-client">
                 <div class="container-inputs">
                     <input type="text" class="input-client input-nombre" required="required" placeholder="Digite nombre y apellido del cliente">
@@ -79,55 +87,55 @@
 
         <section class="products">
             <div class="product">
-                <img src="/img/producto.png" alt="">
+                <img src="./img/producto.png" alt="">
                 <p class="product-name">nombre producto</p>
                 <p class="price">$20.000</p>
                 <button class="add-cart">Agregar a la cesta</button>
             </div>
             <div class="product">
-                <img src="/img/producto.png" alt="">
+                <img src="./img/producto.png" alt="">
                 <p class="product-name">nombre producto</p>
                 <p class="price">$20.000</p>
                 <button class="add-cart">Agregar a la cesta</button>
             </div>
             <div class="product">
-                <img src="/img/producto.png" alt="">
+                <img src="./img/producto.png" alt="">
                 <p class="product-name">nombre producto</p>
                 <p class="price">$20.000</p>
                 <button class="add-cart">Agregar a la cesta</button>
             </div>
             <div class="product">
-                <img src="/img/producto.png" alt="">
+                <img src="./img/producto.png" alt="">
                 <p class="product-name">nombre producto</p>
                 <p class="price">$20.000</p>
                 <button class="add-cart">Agregar a la cesta</button>
             </div>
             <div class="product">
-                <img src="/img/producto.png" alt="">
+                <img src="./img/producto.png" alt="">
                 <p class="product-name">nombre producto</p>
                 <p class="price">$20.000</p>
                 <button class="add-cart">Agregar a la cesta</button>
             </div>
             <div class="product">
-                <img src="/img/producto.png" alt="">
+                <img src="./img/producto.png" alt="">
                 <p class="product-name">nombre producto</p>
                 <p class="price">$20.000</p>
                 <button class="add-cart">Agregar a la cesta</button>
             </div>
             <div class="product">
-                <img src="/img/producto.png" alt="">
+                <img src="./img/producto.png" alt="">
                 <p class="product-name">nombre producto</p>
                 <p class="price">$20.000</p>
                 <button class="add-cart">Agregar a la cesta</button>
             </div>
             <div class="product">
-                <img src="/img/producto.png" alt="">
+                <img src="./img/producto.png" alt="">
                 <p class="product-name">nombre producto</p>
                 <p class="price">$20.000</p>
                 <button class="add-cart">Agregar a la cesta</button>
             </div>
             <div class="product">
-                <img src="/img/producto.png" alt="">
+                <img src="./img/producto.png" alt="">
                 <p class="product-name">nombre producto</p>
                 <p class="price">$20.000</p>
                 <button class="add-cart">Agregar a la cesta</button>
@@ -140,3 +148,4 @@
     </footer>
 </body>
 </html>
+<?php endif; ?>
