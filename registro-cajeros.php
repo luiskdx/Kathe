@@ -21,11 +21,19 @@ else {
   $insertRegister = "INSERT INTO cajeros (`id`, `nombre`, `tipo_documento`, `documento`, `telefono`, `email`, `password`, `facturas`) VALUES (NULL, '".$name."', '".$typeDoc."', '".$numberDoc."', '".$phone."', '".$email."', '".$passwordHash."', '')";
 
   if (!$insertRegister) {
-    die('Error: ' . mysql_error());
+    die('Error: ' . mysqli_error());
   }
 
+  echo '<pre>';
+  print_r($db);
+  echo '</pre>';
+
+  echo '<pre>';
+  print_r($insertRegister);
+  echo '</pre>';
+
   mysqli_query($db, $insertRegister);
-  mysqli_close($db);
+  // mysqli_close($db);
 
   $_SESSION['form_msg'] = "<p class='ok'>Registro creado exitosamente.</p>";
 
