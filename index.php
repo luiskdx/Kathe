@@ -33,7 +33,7 @@
             <button class="button-selector" id="showLogin">iniciar sesion</button>
         </div>
 
-        <form id="form-register" class="form-register active" action="registro-cajeros.php" method="post">
+        <form id="form-register" class="form-register active" action="./funciones/registro-cajeros.php" method="post">
             <h2>Regístro para Cajeros</h2>
             <input type="text" class="input-register input-name" name="nombres" required="required" placeholder="Digite su nombre y apellido">
             <div class="container-select"> 
@@ -44,14 +44,14 @@
                 </select>
             </div>
             <input type="number" class="input-register input-document" name="numero_documento" required placeholder="Digite su número de documento">
-            <input type="tel" class="input-register input-phone" name="telefono" required placeholder="Digite su número de teléfono">
+            <input type="tel" class="input-register input-phone" name="telefono" maxlength="10" required placeholder="Digite su número de teléfono">
             <input type="email" class="input-register input-email" name="email" required placeholder="Digite su correo electrónico">
             <input type="password" class="input-register input-document" name="password" required placeholder="Digite su contraseña">
             <input type="password" class="input-register input-document" required placeholder="Digite su contraseña de nuevo">
             <input type="submit" class="input-register input-submit" name="register" value="Registrar">
         </form>
 
-        <form id="form-login" class="form-login" action="login.php" method="post">
+        <form id="form-login" class="form-login" action="./funciones/login.php" method="post">
             <h2>Iniciar sesion</h2>
             <input type="email" class="input-login input-email" name="email" required placeholder="Digite su correo electrónico">
             <input type="password" class="input-login input-document" name="password" required placeholder="Digite su contraseña">

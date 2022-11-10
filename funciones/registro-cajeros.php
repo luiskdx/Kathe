@@ -1,5 +1,5 @@
 <?php
-include('./funciones/config.php');
+include('../funciones/config.php');
 session_start();
 
 $name = $_POST['nombres'];
@@ -15,19 +15,23 @@ $result = mysqli_query($db, "SELECT * FROM cajeros WHERE email = '".$email."'");
 if(mysqli_num_rows($result) > 0) {
   $_SESSION['form_msg'] = "<p class='error'>Email registrado anteriormente - Registro rechazado.</p>";
 
-  header('Location: index.php');
+  header('Location: ../index.php');
 }
 else {
   $insertRegister = "INSERT INTO cajeros (`id`, `nombre`, `tipo_documento`, `documento`, `telefono`, `email`, `password`, `facturas`) VALUES (NULL, '".$name."', '".$typeDoc."', '".$numberDoc."', '".$phone."', '".$email."', '".$passwordHash."', '')";
 
-  if (!$insertRegister) {
-    die('Error: ' . mysqli_error());
+  if (!mysqli_query($db, $insertRegister)) {
+    echo("Error: " . mysqli_error($db));
+    mysqli_close($db);
+    
+    $_SESSION['form_msg'] = "<p class='error'>Hubo problemas para crear el registro.</p>";
+  }
+  else {
+    mysqli_query($db, $insertRegister);
+    mysqli_close($db);
+
+    $_SESSION['form_msg'] = "<p class='ok'>Registro creado exitosamente.</p>";
   }
 
-  mysqli_query($db, $insertRegister);
-  mysqli_close($db);
-
-  $_SESSION['form_msg'] = "<p class='ok'>Registro creado exitosamente.</p>";
-
-  header('Location: index.php');
+  header('Location: ../index.php');
 }

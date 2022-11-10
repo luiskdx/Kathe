@@ -28,7 +28,7 @@
         </nav>
     </header>
     <main class="container-forms">
-        <form id="form-register" class="form-register active" action="registro-clientes.php" method="post">
+        <form id="form-register" class="form-register active" action="./funciones/registro-clientes.php" method="post">
             <h2>Regístrar Clientes</h2>
             <input type="text" class="input-register input-name" name="nombres" required="required" placeholder="Digite su nombre y apellido">
             <div class="container-select"> 
@@ -39,7 +39,7 @@
                 </select>
             </div>
             <input type="number" class="input-register input-document" name="numero_documento" required placeholder="Digite su número de documento">
-            <input type="tel" class="input-register input-phone" name="telefono" required placeholder="Digite su número de teléfono">
+            <input type="tel" class="input-register input-phone" name="telefono" maxlength="10" required placeholder="Digite su número de teléfono">
             <input type="email" class="input-register input-email" name="email" required placeholder="Digite su correo electrónico">
             <input type="submit" class="input-register input-submit" name="register" value="Registrar">
         </form>
