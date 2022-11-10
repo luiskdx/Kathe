@@ -43,7 +43,7 @@
                     <option value="Cédula de ciudadania">Cédula de ciudadania</option>
                 </select>
             </div>
-            <input type="number" class="input-register input-document" name="numero_documento" required placeholder="Digite su número de documento">
+            <input type="number" class="input-register input-document" name="numero_documento" maxlength="10" required placeholder="Digite su número de documento">
             <input type="tel" class="input-register input-phone" name="telefono" maxlength="10" required placeholder="Digite su número de teléfono">
             <input type="email" class="input-register input-email" name="email" required placeholder="Digite su correo electrónico">
             <input type="password" class="input-register input-document" name="password" required placeholder="Digite su contraseña">

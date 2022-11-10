@@ -31,7 +31,7 @@ else {
     mysqli_close($db);
 
     $_SESSION['form_msg'] = "<p class='ok'>Registro creado exitosamente.</p>";
-  }
 
-  header('Location: ../index.php');
+    header('Location: ../index.php');
+  }
 }

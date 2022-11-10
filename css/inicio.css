@@ -91,23 +91,3 @@ form .input-submit:hover {
 .page-home footer {
     position: fixed;
 }
-
-.feedback-msg {
-    text-align: center;
-    font-size: 14px;
-}
-
-.feedback-msg p {
-    border: 1px solid;
-    padding: 5px 15px;
-}
-
-.feedback-msg .error {
-    color: red;
-    border-color: red;
-}
-
-.feedback-msg .ok {
-    color: #083308;
-    border-color: #083308;
-}

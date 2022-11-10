@@ -116,8 +116,9 @@ form .input-submit:hover{
 .products {
     display: flex;
     flex-wrap: wrap;
+    gap: calc(20% / 3 - 27px);
     padding: 20px;
-    gap: 20px;
+    row-gap: 30px;
 }
 
 .products .product {
@@ -158,4 +159,17 @@ form .input-submit:hover{
 
 .container-inputs input {
     width: calc(50% - 20px);
+}
+
+.form-client.consult .container-client {
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-input {
+    width: calc(40% - -10px);
+}
+
+.container-input input {
+    width: calc(100% - 20px);
 }

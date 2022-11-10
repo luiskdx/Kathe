@@ -40,17 +40,49 @@ else:
     </header>
 
     <main class="container-forms">
-        <form class="form-client" action="" method="post">
-            <h2>Consultar cliente <?php echo $_SESSION['user_id']; ?></h2>
+        <form class="form-client consult" action="./funciones/consultar-cliente.php" method="post">
+            <h2>Consultar cliente</h2>
             <div class="container-client">
-                <div class="container-inputs">
-                    <input type="text" class="input-client input-nombre" required="required" placeholder="Digite nombre y apellido del cliente">
-                    <input type="text" class="input-client input-telefono" required="required" placeholder="Digite número de celular del cliente">
-                    <input type="text" class="input-client input-cédula" required="required" placeholder="Digite numero de cedula del cliente">
-                    <input type="text" class="input-client input-email" required="required" placeholder="Digite correo electrónico del cliente">
+                <div class="container-input">
+                    <input type="text" class="input-client input-cédula" maxlength="10" name="numero_documento" required="required" placeholder="Digite el número de documento del cliente">
                 </div>
                 <input type="submit" class="input-consultar input-submit" value="consultar información">
-                <input type="submit" class="input-guardar input-submit" value="guardar información" disabled>
+            </div>
+        </form>
+
+        <div class="feedback-msg">
+            <?php
+            if(isset($_SESSION['consult_msg'])){
+                echo $_SESSION['consult_msg'];
+                unset($_SESSION['consult_msg']);
+            }
+            ?>
+        </div>
+
+        <hr>
+
+        <form class="form-client" action="./funciones/actualizar-cliente.php" method="post">
+            <div class="container-client">
+                <div class="container-inputs">
+                    <input type="text" class="input-client input-nombre" required="required" placeholder="Digite el nombre y apellido del cliente" name="nombres" value="<?= $_SESSION['client_name']; ?>">
+                    <input type="text" class="input-client input-telefono" maxlength="10" required="required" placeholder="Digite el número de celular del cliente" name="telefono" value="<?= $_SESSION['client_phone']; ?>">
+                    <input type="text" class="input-client input-cédula" maxlength="10" required="required" placeholder="Digite el número de documento del cliente" name="numero_documento" value="<?= $_SESSION['client_document']; ?>">
+                    <input type="text" class="input-client input-email" required="required" placeholder="Digite el correo electrónico del cliente" name="email" value="<?= $_SESSION['client_email']; ?>">
+                </div>
+                <input type="submit" class="input-guardar input-submit" value="guardar información" <?= ($_SESSION['allow_update'] == 'ok') ? '' : 'disabled'; ?>>
+            </div>
+
+            <?php
+                unset($_SESSION['client_name'], $_SESSION['client_document'], $_SESSION['client_phone'], $_SESSION['client_email'], $_SESSION['allow_update']);
+            ?>
+
+            <div class="feedback-msg">
+                <?php
+                if(isset($_SESSION['update_msg'])){
+                    echo $_SESSION['update_msg'];
+                    unset($_SESSION['update_msg']);
+                }
+                ?>
             </div>
         </form>
 
