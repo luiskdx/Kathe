@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.34)
 # Database: db_reciclaje
-# Generation Time: 2022-11-09 20:14:07 +0000
+# Generation Time: 2022-11-10 19:30:23 +0000
 # ************************************************************
 
 
@@ -30,21 +30,20 @@ CREATE TABLE `cajeros` (
   `nombre` varchar(50) NOT NULL,
   `tipo_documento` varchar(30) NOT NULL,
   `documento` varchar(30) NOT NULL,
-  `telefono` int(15) NOT NULL,
+  `telefono` varchar(15) NOT NULL,
   `email` varchar(30) NOT NULL,
   `password` varchar(100) NOT NULL,
   `facturas` varchar(30) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `Email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `cajeros` WRITE;
 /*!40000 ALTER TABLE `cajeros` DISABLE KEYS */;
 
 INSERT INTO `cajeros` (`id`, `nombre`, `tipo_documento`, `documento`, `telefono`, `email`, `password`, `facturas`)
 VALUES
-	(18,'Luis','Tarjeta de identidad','12',12,'luiskdx@gmail.com','$2y$10$VzZchG2NEVaFij/Rij9U1.yyW6TCvYIwA/kSTZN4N8L7NBHxz/Avy',''),
-	(20,'Luis','Cédula de ciudadania','12',12,'luiskdx1212@gmail.com','$2y$10$uGyOfG7tKA9qHHivzCqZw.uz1OxFMutyNgz5cBVWJuUdezs7hTp1u','');
+	(18,'Luis','Tarjeta de identidad','12','12','luiskdx@gmail.com','$2y$10$VzZchG2NEVaFij/Rij9U1.yyW6TCvYIwA/kSTZN4N8L7NBHxz/Avy','');
 
 /*!40000 ALTER TABLE `cajeros` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -57,9 +56,27 @@ DROP TABLE IF EXISTS `clientes`;
 
 CREATE TABLE `clientes` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `nombre` varchar(50) NOT NULL,
+  `tipo_documento` varchar(30) NOT NULL,
+  `documento` varchar(30) NOT NULL,
+  `telefono` varchar(15) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `facturas` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `Email` (`email`),
+  UNIQUE KEY `Documento` (`documento`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
+LOCK TABLES `clientes` WRITE;
+/*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
+
+INSERT INTO `clientes` (`id`, `nombre`, `tipo_documento`, `documento`, `telefono`, `email`, `facturas`)
+VALUES
+	(1,'Luis','Tarjeta de identidad','12','12','luiskdx99@gmail.com',''),
+	(3,'Luis','Cédula de ciudadania','13','13','luiskdx1212@gmail.com','');
+
+/*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table facturas
