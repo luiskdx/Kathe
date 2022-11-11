@@ -24,14 +24,8 @@
         <div class="logo">
             <img src="./img/logo.png" alt="logo del proyecto">
         </div>
-        <nav>
-            <a href="index.php" class="nav-link">Inicio</a>
-            <a href="productos.php" class="nav-link">Productos</a>
-            <a href="final.php" class="nav-link">Factura</a>
-            <div class="total-items">
-                <span>3</span>
-            </div>
-        </nav>
+        
+        <?php include("nav.php"); ?>
     </header>
     <main class="container-forms">
         <h2>Gracias por tu compra</h2>
@@ -104,8 +98,6 @@
         </section>
     </main>
 
-    <footer>
-        Nombre sitio Web ©2022
-    </footer>
+    <?php include("footer.php"); ?>
 </body>
 </html>

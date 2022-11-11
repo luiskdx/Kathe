@@ -28,15 +28,8 @@ else:
         <div class="logo">
             <img src="./img/logo.png" alt="logo del proyecto">
         </div>
-        <nav>
-            <a href="./" class="nav-link">Inicio</a>
-            <a href="clientes.php" class="nav-link">Clientes</a>
-            <a href="productos.php" class="nav-link">Productos</a>
-            <a href="final.php" class="nav-link">Factura</a>
-            <div class="total-items">
-                <span>0</span>
-            </div>
-        </nav>
+
+        <?php include("nav.php"); ?>
     </header>
 
     <main class="container-forms">
@@ -176,9 +169,7 @@ else:
         </section>
     </main>
 
-    <footer>
-        Nombre sitio Web ©2022
-    </footer>
+   <?php include("footer.php"); ?>
 </body>
 </html>
 <?php endif; ?>
