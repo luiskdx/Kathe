@@ -21,11 +21,7 @@
         <div class="logo">
             <img src="./img/logo.png" alt="logo del proyecto">
         </div>
-
-        <nav>
-            <a href="./" class="nav-link">Inicio</a>
-            <a href="productos.php" class="nav-link">Productos</a>
-        </nav>
+        <?php include("nav.php"); ?>
     </header>
     <main class="container-forms">
         <div class="form-selector">
@@ -68,9 +64,6 @@
         </div>
     </main>
 
-    <footer>
-        Nombre sitio Web ©2022
-    </footer>
-    <script src="./js/app.js"></script>
+    <?php include("footer.php"); ?>
 </body>
 </html>
