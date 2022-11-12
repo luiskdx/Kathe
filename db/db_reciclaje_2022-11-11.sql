@@ -1,13 +1,13 @@
 # ************************************************************
 # Sequel Ace SQL dump
-# Version 20039
+# Versión 20039
 #
 # https://sequel-ace.com/
 # https://github.com/Sequel-Ace/Sequel-Ace
 #
-# Host: 127.0.0.1 (MySQL 5.7.34)
-# Database: db_reciclaje
-# Generation Time: 2022-11-10 19:30:23 +0000
+# Equipo: 127.0.0.1 (MySQL 5.7.34)
+# Base de datos: db_reciclaje
+# Tiempo de generación: 2022-11-12 00:21:41 +0000
 # ************************************************************
 
 
@@ -20,7 +20,7 @@ SET NAMES utf8mb4;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump of table cajeros
+# Volcado de tabla cajeros
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `cajeros`;
@@ -49,7 +49,7 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table clientes
+# Volcado de tabla clientes
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `clientes`;
@@ -72,14 +72,14 @@ LOCK TABLES `clientes` WRITE;
 
 INSERT INTO `clientes` (`id`, `nombre`, `tipo_documento`, `documento`, `telefono`, `email`, `facturas`)
 VALUES
-	(1,'Luis','Tarjeta de identidad','12','12','luiskdx99@gmail.com',''),
-	(3,'Luis','Cédula de ciudadania','13','13','luiskdx1212@gmail.com','');
+	(1,'Luis','Tarjeta de identidad','0000000000','7777777777','luiskdx99@gmail.com',''),
+	(3,'Luis','Cédula de ciudadania','999999999','13','luiskdx@gmail.com','');
 
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
-# Dump of table facturas
+# Volcado de tabla facturas
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `facturas`;
@@ -91,16 +91,33 @@ CREATE TABLE `facturas` (
 
 
 
-# Dump of table productos
+# Volcado de tabla productos
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `productos`;
 
 CREATE TABLE `productos` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `nombre` varchar(50) NOT NULL,
+  `precio` varchar(5) NOT NULL,
+  `stock` varchar(5) NOT NULL,
+  `empaque` varchar(30) NOT NULL,
+  `tipo` varchar(30) NOT NULL,
+  `reciclaje` varchar(30) NOT NULL,
+  `imagen` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `Nombre` (`nombre`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
+LOCK TABLES `productos` WRITE;
+/*!40000 ALTER TABLE `productos` DISABLE KEYS */;
+
+INSERT INTO `productos` (`id`, `nombre`, `precio`, `stock`, `empaque`, `tipo`, `reciclaje`, `imagen`)
+VALUES
+	(1,'prod','12','12','Plastico','Despensa','Blanco-Negro-Verde','img-productos/producto.png');
+
+/*!40000 ALTER TABLE `productos` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 
