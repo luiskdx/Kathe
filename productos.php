@@ -112,60 +112,27 @@ else:
         </form>
 
         <section class="products">
-            <div class="product">
-                <img src="./img/producto.png" alt="">
-                <p class="product-name">nombre producto</p>
-                <p class="price">$20.000</p>
-                <button class="add-cart">Agregar a la cesta</button>
-            </div>
-            <div class="product">
-                <img src="./img/producto.png" alt="">
-                <p class="product-name">nombre producto</p>
-                <p class="price">$20.000</p>
-                <button class="add-cart">Agregar a la cesta</button>
-            </div>
-            <div class="product">
-                <img src="./img/producto.png" alt="">
-                <p class="product-name">nombre producto</p>
-                <p class="price">$20.000</p>
-                <button class="add-cart">Agregar a la cesta</button>
-            </div>
-            <div class="product">
-                <img src="./img/producto.png" alt="">
-                <p class="product-name">nombre producto</p>
-                <p class="price">$20.000</p>
-                <button class="add-cart">Agregar a la cesta</button>
-            </div>
-            <div class="product">
-                <img src="./img/producto.png" alt="">
-                <p class="product-name">nombre producto</p>
-                <p class="price">$20.000</p>
-                <button class="add-cart">Agregar a la cesta</button>
-            </div>
-            <div class="product">
-                <img src="./img/producto.png" alt="">
-                <p class="product-name">nombre producto</p>
-                <p class="price">$20.000</p>
-                <button class="add-cart">Agregar a la cesta</button>
-            </div>
-            <div class="product">
-                <img src="./img/producto.png" alt="">
-                <p class="product-name">nombre producto</p>
-                <p class="price">$20.000</p>
-                <button class="add-cart">Agregar a la cesta</button>
-            </div>
-            <div class="product">
-                <img src="./img/producto.png" alt="">
-                <p class="product-name">nombre producto</p>
-                <p class="price">$20.000</p>
-                <button class="add-cart">Agregar a la cesta</button>
-            </div>
-            <div class="product">
-                <img src="./img/producto.png" alt="">
-                <p class="product-name">nombre producto</p>
-                <p class="price">$20.000</p>
-                <button class="add-cart">Agregar a la cesta</button>
-            </div>
+            <?php
+                include('funciones/config.php');
+
+                $products = mysqli_query($db, "SELECT * FROM productos");
+
+                if(mysqli_num_rows($products) == 0) {
+                    echo "<div class='feedback-msg'><p class='error'>No se encontraron productos.</p></div>";
+                }
+                else {
+                    foreach ($products as $row) {
+            ?>
+                        <div class="product" id="<?= $row['id'] ?>" data-nombre="<?= $row['nombre'] ?>" data-stock="<?= $row['stock'] ?>" data-empaque="<?= $row['empaque'] ?>" data-tipo="<?= $row['tipo'] ?>">
+                            <img src="<?= $row['imagen'] ?>" alt="<?= $row['nombre'] ?>">
+                            <p class="product-name"><?= $row['nombre'] ?></p>
+                            <p class="price">$<?php echo $row['precio'] ?></p>
+                            <button class="add-cart">Agregar a la cesta</button>
+                        </div>
+            <?php
+                    }
+                }
+            ?>
         </section>
     </main>
 

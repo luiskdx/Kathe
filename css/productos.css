@@ -151,6 +151,10 @@ form .input-submit:hover{
     width: 100%;
 }
 
+.products .feedback-msg {
+    width: 100%;
+}
+
 .container-inputs {
     width: 100%;
     display: flex;
@@ -172,4 +176,26 @@ form .input-submit:hover{
 
 .container-input input {
     width: calc(100% - 20px);
+}
+
+.container-checkbox {
+    margin: 10px auto;
+    position: relative;
+    width: 70%;
+}
+
+.container-checkbox label {
+    display: block;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.container-checkbox span {
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 15px;
+}
+
+form .input-register-product {
+    width: 130px;
 }
