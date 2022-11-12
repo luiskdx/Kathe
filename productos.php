@@ -81,7 +81,7 @@ else:
 
         <form action="" class="form-search">
             <label for="">buscar:</label>
-            <input type="text"class="input-search" required="required">
+            <input type="text" class="input-search" required="required">
             <input type="submit" class="submit-search" value="buscar ahora">
         </form>
 
