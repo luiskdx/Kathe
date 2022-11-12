@@ -22,10 +22,7 @@
             <img src="./img/logo.png" alt="logo del proyecto">
         </div>
 
-        <nav>
-            <a href="./" class="nav-link">Inicio</a>
-            <a href="productos.php" class="nav-link">Productos</a>
-        </nav>
+        <?php include("nav.php"); ?>
     </header>
     <main class="container-forms">
         <form id="form-register" class="form-register active" action="./funciones/registro-producto.php" method="post" enctype="multipart/form-data">
@@ -74,9 +71,7 @@
         </div>
     </main>
 
-    <footer>
-        Nombre sitio Web ©2022
-    </footer>
+    <?php include("footer.php"); ?>
     <script src="./js/app.js"></script>
 </body>
 </html>
