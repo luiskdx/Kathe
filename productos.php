@@ -127,6 +127,7 @@ else:
                             <img src="<?= $row['imagen'] ?>" alt="<?= $row['nombre'] ?>">
                             <p class="product-name"><?= $row['nombre'] ?></p>
                             <p class="price">$<?php echo $row['precio'] ?></p>
+                            <input class="qty" type="number" value="0" hidden>
                             <button class="add-cart">Agregar a la cesta</button>
                         </div>
             <?php

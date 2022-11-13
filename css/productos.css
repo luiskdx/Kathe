@@ -147,6 +147,7 @@ form .input-submit:hover{
 .products .product .add-cart {
     border: none;
     background-color: #d8eb95;
+    cursor: pointer;
     padding: 6px;
     width: 100%;
 }
