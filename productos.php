@@ -89,23 +89,23 @@ else:
             <label for="">filtrar por</label>
             <div class="container-select select-material"> 
                 <select name="" class="select-filter">
-                    <option value="">elija una opción</option>
-                    <option value="">plastico</option>
-                    <option value="">papel</option>
-                    <option value="">carton</option>
-                    <option value="">vidrio</option>
+                    <option value="">Elija una opción</option>
+                    <option value="Plastico">Plástico</option>
+                    <option value="Papel">Papel</option>
+                    <option value="Carton">Cartón</option>
+                    <option value="Vidrio">Vidrio</option>
                 </select>
             </div>
             <label for="">categoria</label>
-            <div class="container-select">
+            <div class="container-select select-kind">
                 <select name="" class="select-filter">
-                    <option value="">elija una opción</option>
-                    <option value="">despensa</option>
-                    <option value="">aseo</option>
-                    <option value="">carne</option>
-                    <option value="">lacteos</option>
-                    <option value="">licores</option>
-                    <option value="">fruta</option>
+                    <option value="">Elija una opción</option>
+                    <option value="Despensa">Despensa</option>
+                    <option value="Aseo">Aseo</option>
+                    <option value="Carne">Carne</option>
+                    <option value="Lacteos">Lacteos</option>
+                    <option value="Licores">Licores</option>
+                    <option value="Fruta">Fruta</option>
                 </select>
             </div> 
             <input type="submit" class="submit-filter" value="filtrar">

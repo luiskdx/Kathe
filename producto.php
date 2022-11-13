@@ -35,8 +35,8 @@
                     <option value="">Tipo de Empaque</option>
                     <option value="Plastico">Plastico</option>
                     <option value="Papel">Papel</option>
-                    <option value="Cartón">Cartón</option>
-                    <option value="Vídrio">Vídrio</option>
+                    <option value="Carton">Cartón</option>
+                    <option value="Vidrio">Vídrio</option>
                 </select>
             </div>
             <div class="container-select"> 
