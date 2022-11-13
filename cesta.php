@@ -12,9 +12,7 @@
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/inicio.css">
-    <link rel="stylesheet" href="css/productos.css">
-    <link rel="stylesheet" href="css/factura.css">
+    <link rel="stylesheet" href="css/cesta.css">
 </head>
 
 <body class="page-bill">

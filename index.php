@@ -26,7 +26,9 @@
     <main class="container-forms">
         <div class="form-selector">
             <button class="button-selector" id="showRegister">registrar</button>
+            <?php if(!isset($_SESSION['user_id'])): ?>
             <button class="button-selector" id="showLogin">iniciar sesion</button>
+            <?php endif; ?>
         </div>
 
         <form id="form-register" class="form-register active" action="./funciones/registro-cajeros.php" method="post">

@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/inicio.css">
-    <link rel="stylesheet" href="css/productos.css">
+    <link rel="stylesheet" href="css/clientes.css">
 </head>
-<body class="page-home">
+<body class="page-clients">
     <header>
         <div class="logo">
             <img src="./img/logo.png" alt="logo del proyecto">
