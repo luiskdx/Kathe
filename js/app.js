@@ -80,17 +80,18 @@ if (sessionStorage.getItem('count_items') != null){
 }
 
 count_items = parseInt($('.total-items span').text())
+let data_product = {};
+let data_remove = {};
 
 $(".product").each(function(index){
   let id_product = $(this).attr('id');
   
   if (sessionStorage.getItem('qty_product_' + id_product)) {
-    console.log(sessionStorage.getItem('qty_product_' + id_product))
     $(this).find('.qty').val(sessionStorage.getItem('qty_product_' + id_product))
   }
 })
 
-$('.add-cart').on('click', function(){
+$('.add-cart').click(function(){
   let id_product_parent = $(this).parent().attr('id');
   let qty_product = $(this).parent().find('.qty').val();
 
@@ -102,6 +103,63 @@ $('.add-cart').on('click', function(){
   
   $('.total-items span').text(count_items);
 
+  data_product['product_' + id_product_parent] = { id: id_product_parent, qty: qty_product};
+
+  console.log(data_product, 'data1');
+
+  $.post(
+    "funciones/obtener-productos.php",
+    {
+      data_product,
+    },
+    (response) => {
+      // response from PHP back-end
+      console.log(`Response from sever side is: ${response}`);
+    }
+  );
+
   sessionStorage.setItem('id_product_' + id_product_parent, id_product_parent)
   sessionStorage.setItem('qty_product_' + id_product_parent, qty_product)
 });
+
+let total_price = 0;
+
+if($('body').hasClass('page-bill')){
+  $('.product .price .value').each(function () {
+    let price = parseInt($(this).text());
+
+    total_price = total_price + price;
+  })
+
+  $('.total-price .total span').empty().text(total_price);
+}
+
+$('.remove-product').click(function(){
+  let id_product_parent = $(this).parent().attr('id');
+  let qty_product = $(this).parent().find('.quantity input').val();
+
+  count_items = count_items - qty_product;
+  $('.total-items span').text(count_items);
+
+  $(this).parent().remove()
+
+  data_remove['product_' + id_product_parent] = { id: id_product_parent, qty: qty_product };
+
+  console.log(data_remove);
+
+  $.post(
+    "funciones/deslistar-producto.php",
+    {
+      data_remove,
+    },
+    (response) => {
+      console.log(`Response from sever side is: ${response}`);
+    }
+  );
+
+  data_remove = {};
+  
+  sessionStorage.setItem('count_items', count_items)
+  sessionStorage.removeItem('id_product_' + id_product_parent)
+  sessionStorage.removeItem('qty_product_' + id_product_parent)
+})

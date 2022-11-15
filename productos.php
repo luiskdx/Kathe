@@ -5,6 +5,13 @@ if(!isset($_SESSION['user_id'])):
     header('Location: index.php');
     exit;
 else:
+    session_start();
+    include('funciones/config.php');
+    $_SESSION['data_product'];
+
+    echo '<pre>';
+    print_r($_SESSION['data_product']);
+    echo '</pre>'
 ?>
 <!DOCTYPE html>
 <html lang="es-co">

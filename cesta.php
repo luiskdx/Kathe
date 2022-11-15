@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    include('funciones/config.php');
+    echo '<pre>';
+    print_r($_SESSION['data_product']);
+    echo '</pre>';
+?>
+
 <!DOCTYPE html>
 <html lang="es-co">
 <head>
@@ -21,52 +29,40 @@
             <img src="./img/logo.png" alt="logo del proyecto">
         </div>
         <?php include("nav.php"); ?>
-        
     </header>
 
     <main class="container-forms">
         <h2>Productos seleccionados</h2>
 
         <section class="list-products">
-            <div class="product">
-                <img src="./img/producto.png" alt="">
-                <div class="data-product">
-                    <p class="product-name">nombre producto</p>
-                    <p class="price">$20.000</p>
+            <?php
+            foreach ($_SESSION['data_product'] as $product_selected) {
+                $ids_products[] = $product_selected['id'];
+                $qty_products[] = $product_selected['qty'];
+            }
+            $list = implode(",", $ids_products);
+            $result = mysqli_query($db, "SELECT * FROM productos WHERE id IN (".$list.")");
+
+            foreach ($result as $index => $row) {
+            ?>
+                <div class="product" id="<?= $row['id'] ?>">
+                    <img src="./<?= $row['imagen']; ?>" alt="">
+                    <div class="data-product">
+                        <p class="product-name"><?= $row['nombre']; ?></p>
+                        <p class="price">$<span class="value"><?= $row['precio']; ?></span></p>
+                    </div>
+                    <div class="quantity">
+                        <label for="">cantidad</label>
+                        <input type="number" value="<?= $qty_products[$index]; ?>">
+                    </div>
+                    <button class="btn-general remove-product">Remover de la cesta</button>
                 </div>
-                <div class="quantity">
-                    <label for="">cantidad</label>
-                    <input type="number" value="1">
-                </div>
-                <button class="btn-general">Remover de la cesta</button>
-            </div>
-            <div class="product">
-                <img src="./img/producto.png" alt="">
-                <div class="data-product">
-                    <p class="product-name">nombre producto</p>
-                    <p class="price">$20.000</p>
-                </div>
-                <div class="quantity">
-                    <label for="">cantidad</label>
-                    <input type="number" value="1">
-                </div>
-                <button class="btn-general">Remover de la cesta</button>
-            </div>
-            <div class="product">
-                <img src="./img/producto.png" alt="">
-                <div class="data-product">
-                    <p class="product-name">nombre producto</p>
-                    <p class="price">$20.000</p>
-                </div>
-                <div class="quantity">
-                    <label for="">cantidad</label>
-                    <input type="number" value="1">
-                </div>
-                <button class="btn-general">Remover de la cesta</button>
-            </div>
+            <?php
+            }
+            ?>
         </section>
         <section class="total-price">
-            <p class="total">Descuento de $10.000 - Valor total <span>$50.000</span></p>
+            <p class="total">Valor total $<span>0</span></p>
             <button class="btn-general">Devolver</button>
             <button class="btn-general">Seguir a la pasarela de pago</button>
         </section>
