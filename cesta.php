@@ -1,9 +1,6 @@
 <?php
     session_start();
-    include('funciones/config.php');
-    echo '<pre>';
-    print_r($_SESSION['data_product']);
-    echo '</pre>';
+    include('funciones/config.php');;
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +32,18 @@
         <h2>Productos seleccionados</h2>
 
         <section class="list-products">
+            <div class="container-select"> 
+                <select name="cliente" class="select-client" required>
+                    <option value="">Seleccione un cliente</option>
+            <?php
+            $clients = mysqli_query($db, "SELECT * FROM clientes");
+            foreach ($clients as $client) {
+            ?>
+                <option value="<?= $client['id']; ?>"><?= $client['nombre']; ?></option>
+            <?php } ?>
+                </select>
+            </div>
+            <input type="number" class="number_checker" placeholder="Digite el número de caja" required>
             <?php
             foreach ($_SESSION['data_product'] as $product_selected) {
                 $ids_products[] = $product_selected['id'];
@@ -53,7 +62,7 @@
                     </div>
                     <div class="quantity">
                         <label for="">cantidad</label>
-                        <input type="number" value="<?= $qty_products[$index]; ?>">
+                        <input type="number" value="<?= $qty_products[$index]; ?>" max="<?= $row['stock']; ?>" min="1">
                     </div>
                     <button class="btn-general remove-product">Remover de la cesta</button>
                 </div>
@@ -63,8 +72,8 @@
         </section>
         <section class="total-price">
             <p class="total">Valor total $<span>0</span></p>
-            <button class="btn-general">Devolver</button>
-            <button class="btn-general">Seguir a la pasarela de pago</button>
+            <button id="volver-productos" class="btn-general">Devolver</button>
+            <button id="pago-online" class="btn-general">Seguir a la pasarela de pago</button>
         </section>
     </main>
 

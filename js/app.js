@@ -82,6 +82,7 @@ if (sessionStorage.getItem('count_items') != null){
 count_items = parseInt($('.total-items span').text())
 let data_product = {};
 let data_remove = {};
+let data_final = {};
 
 $(".product").each(function(index){
   let id_product = $(this).attr('id');
@@ -105,16 +106,13 @@ $('.add-cart').click(function(){
 
   data_product['product_' + id_product_parent] = { id: id_product_parent, qty: qty_product};
 
-  console.log(data_product, 'data1');
-
   $.post(
     "funciones/obtener-productos.php",
     {
       data_product,
     },
     (response) => {
-      // response from PHP back-end
-      console.log(`Response from sever side is: ${response}`);
+      // console.log(`Response from sever side is: ${response}`);
     }
   );
 
@@ -145,15 +143,13 @@ $('.remove-product').click(function(){
 
   data_remove['product_' + id_product_parent] = { id: id_product_parent, qty: qty_product };
 
-  console.log(data_remove);
-
   $.post(
     "funciones/deslistar-producto.php",
     {
       data_remove,
     },
     (response) => {
-      console.log(`Response from sever side is: ${response}`);
+      // console.log(`Response from sever side is: ${response}`);
     }
   );
 
@@ -162,4 +158,49 @@ $('.remove-product').click(function(){
   sessionStorage.setItem('count_items', count_items)
   sessionStorage.removeItem('id_product_' + id_product_parent)
   sessionStorage.removeItem('qty_product_' + id_product_parent)
+});
+
+
+$('#volver-productos').click(function(){
+  window.location.href = "./productos.php";
+});
+
+let final_products = {};
+
+$('#pago-online').click(function () {
+  if ($('.number_checker')[0].reportValidity() && $('.select-client')[0].reportValidity()){
+    let id_client = $('.select-client').val();
+    let cashier_id = $('.number_checker').val();
+    let total_price = parseInt($('.total-price .total span').text());
+
+    data_final = { client_id: id_client, total: total_price, cashier: cashier_id };
+    
+    $(".page-bill .list-products .product").each(function (index) {
+      let id_product = $(this).attr('id');
+      let qty_product = $(this).find('.quantity input').val();
+      
+      final_products['product_' + id_product] = { id: id_product, qty: qty_product };
+    });
+
+    data_final['products'] = final_products
+
+    $.post(
+      "funciones/finalizar-proceso.php",
+      {
+        data_final,
+      },
+      (response) => {
+        // console.log(`Response from sever side is: ${response}`);
+      }
+    );
+
+    data_final = {};
+    sessionStorage.clear();
+
+    window.location.href = "./simulador-pago.php";
+  }
+});
+
+$('.btn_reset').click(function(){
+  window.location.href = "./index.php";
 })

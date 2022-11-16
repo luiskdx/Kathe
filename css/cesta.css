@@ -46,3 +46,39 @@
 .page-bill .btn-general {
     margin: 0 10px;
 }
+
+.page-bill .container-select {
+    position: relative;
+    width: 540px;
+    margin: 10px auto;
+}
+
+.page-bill .select-client {
+    appearance: none;
+    border: none;
+    color: #757575;
+    display: block;
+    padding: 5px;
+    position: relative;
+    width: 100%;
+}
+
+.page-bill .container-select:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 4px 0 4px;
+    border-color: #030303 transparent transparent transparent;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: block;
+}
+
+.number_checker {
+    border: none;
+    margin: 10px auto;
+    padding: 5px;
+    width: 530px;
+}

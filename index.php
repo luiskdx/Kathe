@@ -66,6 +66,14 @@
         </div>
     </main>
 
-    <?php include("footer.php"); ?>
+    <?php
+    include("footer.php");
+    foreach($_SESSION as $key => $val)
+    {
+        if ($key !== 'user_id'){
+            unset($_SESSION[$key]);
+        }
+    }
+    ?>
 </body>
 </html>

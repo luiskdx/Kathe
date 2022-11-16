@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es-co">
 <head>
@@ -12,11 +13,7 @@
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/inicio.css">
-    <link rel="stylesheet" href="css/productos.css">
-    <link rel="stylesheet" href="css/factura.css">
     <link rel="stylesheet" href="css/final.css">
-
 </head>
 
 <body class="page-final">
@@ -30,23 +27,27 @@
     <main class="container-forms">
         <h2>Gracias por tu compra</h2>
         <p class="description">Hemos clasificado los productos que pueden ser reciclados para conservar el medio ambiente te ayudamos a clasificarlos en los siguientes contenedores.</p>
+
         <section class="data-bill">
             <div class="cashier">
                 <h3>Facturado por:</h3>
-                <p><span>Nombre cajero</span></p>
+                <p><span>Cajero</span>: <?= $_SESSION['cashier_name']; ?></p>
             </div>
             <div class="client">
                 <h3>Facturado a:</h3>
-                <p> <span>Nombre cliente</span></p>
-                <p>Documento cliente</p>
-                <p>Telefono cliente</p>
+                <p><span><?= $_SESSION['client_name']; ?></span></p>
+                <p>Documento cliente: <?= $_SESSION['client_document']; ?></p>
+                <p>Telefono cliente: <?= $_SESSION['client_phone']; ?></p>
             </div>
             <div class="bill">
                 <h3>Datos factura:</h3>
-                <p>Número factura: <span>12345678</span></p>
-                <p>Número caja: <span>12345678</span></p>
+                <p>Número factura: <span><?= $_SESSION['bill_id']; ?></span></p>
+                <p>Número caja: <span><?= $_SESSION['cashier_number']; ?></span></p>
             </div>
         </section>
+        
+        <hr>
+
         <section class="list-products type-recycle">
             <div class="product">
                 <div class="data-product">
@@ -94,10 +95,19 @@
             </div>
         </section>   
         <section class="center">
-            <button class="btn-general">Volver</button>
+            <button class="btn-general btn_reset">Volver</button>
         </section>
     </main>
 
-    <?php include("footer.php"); ?>
+    <?php
+    include("footer.php");
+
+    // foreach($_SESSION as $key => $val)
+    // {
+    //     if ($key !== 'user_id'){
+    //         unset($_SESSION[$key]);
+    //     }
+    // }
+    ?>
 </body>
 </html>

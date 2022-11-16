@@ -131,6 +131,8 @@ form .input-submit:hover{
     display: block;
     height: auto;
     max-width: 100%;
+    min-height: 263px;
+    object-fit: contain;
 }
 
 .products .product .product-name {
