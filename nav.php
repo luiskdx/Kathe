@@ -7,6 +7,7 @@ if(isset($_SESSION['user_id'])):
         <a href="clientes.php" class="nav-link">Registrar Clientes</a>
         <a href="producto.php" class="nav-link">Registrar Productos</a>
         <a href="productos.php" class="nav-link">Productos</a>
+        <a href="cerrar-sesiones.php" class="nav-link">Cerrar Sesión</a>
         <a href="cesta.php" class="nav-link cesta">
             <div class="total-items">
                 <span>0</span>
