@@ -202,5 +202,5 @@ $('#pago-online').click(function () {
 });
 
 $('.btn_reset').click(function(){
-  window.location.href = "./index.php";
+  window.location.href = "funciones/cerrar-sesiones.php";
 })

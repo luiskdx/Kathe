@@ -17,10 +17,18 @@
 }
 
 .page-final .list-products .product {
+    align-items: center;
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
-    align-items: center;
+}
+
+.page-final .list-products .product .data-product {
+    width: 260px;
+}
+
+.page-final .list-products .product .data-product p {
+    margin: 0px;
 }
 
 .type-recycle {

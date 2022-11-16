@@ -66,9 +66,7 @@
                     </div>
                     <button class="btn-general remove-product">Remover de la cesta</button>
                 </div>
-            <?php
-            }
-            ?>
+            <?php } ?>
         </section>
         <section class="total-price">
             <p class="total">Valor total $<span>0</span></p>

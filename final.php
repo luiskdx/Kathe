@@ -49,65 +49,44 @@
         <hr>
 
         <section class="list-products type-recycle">
+            <?php
+            foreach ($_SESSION['final_products'] as $product_selected) {
+                $ids_products[] = $product_selected['id'];
+                $qty_products[] = $product_selected['qty'];
+            }
+            $list_products = implode(",", $ids_products);
+
+            include('funciones/config.php');
+            $result = mysqli_query($db, "SELECT * FROM productos WHERE id IN (".$list_products.")");
+
+            foreach ($result as $index => $row) {
+                $list_recycle = explode('-', $row['reciclaje']);
+            ?>
             <div class="product">
                 <div class="data-product">
-                    <p class="product-name">nombre producto</p>
-                    <p class="price">$20.000</p>
+                    <p class="product-name"><?= $row['nombre']; ?></p>
+                    <p class="price">$<?= $row['precio']; ?></p>
                 </div>
                 <div class="quantity">
                     <label for="">cantidad</label>
-                    <input type="number" value="1" disabled>
+                    <input type="number" value="<?= $qty_products[$index]; ?>" disabled>
                 </div>
                 <div class="kind-recycle">
-                    <img src="./img/contenedor-blanco.png" alt="" class="contenedor-blanco">
-                    <img src="./img/contenedor-negro.png" alt="" class="contenedor-negro">
-                    <img src="./img/contenedor-verde.png" alt="" class="contenedor-verde">
+                    <?php
+                    foreach ($list_recycle as $recycle) {
+                        $recycle = strtolower($recycle);
+                    ?>
+                        <img src="./img/contenedor-<?= $recycle; ?>.png" alt="" class="contenedor-<?= $recycle; ?>">
+                    <?php } ?>
                 </div>
             </div>
-            <div class="product">
-                <div class="data-product">
-                    <p class="product-name">nombre producto</p>
-                    <p class="price">$20.000</p>
-                </div>
-                <div class="quantity">
-                    <label for="">cantidad</label>
-                    <input type="number" value="1" disabled>
-                </div>
-                <div class="kind-recycle">
-                    <img src="./img/contenedor-blanco.png" alt="" class="contenedor-blanco">
-                    <img src="./img/contenedor-negro.png" alt="" class="contenedor-negro">
-                    <img src="./img/contenedor-verde.png" alt="" class="contenedor-verde">
-                </div>
-            </div>
-            <div class="product">
-                <div class="data-product">
-                    <p class="product-name">nombre producto</p>
-                    <p class="price">$20.000</p>
-                </div>
-                <div class="quantity">
-                    <label for="">cantidad</label>
-                    <input type="number" value="1" disabled>
-                </div>
-                <div class="kind-recycle">
-                    <img src="./img/contenedor-blanco.png" alt="" class="contenedor-blanco">
-                    <img src="./img/contenedor-negro.png" alt="" class="contenedor-negro">
-                </div>
-            </div>
-        </section>   
+            <?php } ?>
+        </section>
         <section class="center">
             <button class="btn-general btn_reset">Volver</button>
         </section>
     </main>
 
-    <?php
-    include("footer.php");
-
-    // foreach($_SESSION as $key => $val)
-    // {
-    //     if ($key !== 'user_id'){
-    //         unset($_SESSION[$key]);
-    //     }
-    // }
-    ?>
+    <?php include("footer.php"); ?>
 </body>
 </html>

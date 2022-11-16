@@ -7,7 +7,7 @@
 #
 # Equipo: 127.0.0.1 (MySQL 5.7.34)
 # Base de datos: db_reciclaje
-# Tiempo de generación: 2022-11-12 00:21:41 +0000
+# Tiempo de generación: 2022-11-16 22:11:49 +0000
 # ************************************************************
 
 
@@ -36,17 +36,8 @@ CREATE TABLE `cajeros` (
   `facturas` varchar(30) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `Email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-LOCK TABLES `cajeros` WRITE;
-/*!40000 ALTER TABLE `cajeros` DISABLE KEYS */;
-
-INSERT INTO `cajeros` (`id`, `nombre`, `tipo_documento`, `documento`, `telefono`, `email`, `password`, `facturas`)
-VALUES
-	(18,'Luis','Tarjeta de identidad','12','12','luiskdx@gmail.com','$2y$10$VzZchG2NEVaFij/Rij9U1.yyW6TCvYIwA/kSTZN4N8L7NBHxz/Avy','');
-
-/*!40000 ALTER TABLE `cajeros` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Volcado de tabla clientes
@@ -65,18 +56,8 @@ CREATE TABLE `clientes` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `Email` (`email`),
   UNIQUE KEY `Documento` (`documento`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-LOCK TABLES `clientes` WRITE;
-/*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-
-INSERT INTO `clientes` (`id`, `nombre`, `tipo_documento`, `documento`, `telefono`, `email`, `facturas`)
-VALUES
-	(1,'Luis','Tarjeta de identidad','0000000000','7777777777','luiskdx99@gmail.com',''),
-	(3,'Luis','Cédula de ciudadania','999999999','13','luiskdx@gmail.com','');
-
-/*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Volcado de tabla facturas
@@ -85,7 +66,12 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `facturas`;
 
 CREATE TABLE `facturas` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_cliente` varchar(10) DEFAULT NULL,
+  `id_cajero` varchar(10) DEFAULT NULL,
+  `numero_caja` varchar(10) DEFAULT NULL,
+  `id_productos` varchar(10) DEFAULT NULL,
+  `cantidades` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -107,17 +93,8 @@ CREATE TABLE `productos` (
   `imagen` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `Nombre` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-LOCK TABLES `productos` WRITE;
-/*!40000 ALTER TABLE `productos` DISABLE KEYS */;
-
-INSERT INTO `productos` (`id`, `nombre`, `precio`, `stock`, `empaque`, `tipo`, `reciclaje`, `imagen`)
-VALUES
-	(1,'prod','12','12','Plastico','Despensa','Blanco-Negro-Verde','img-productos/producto.png');
-
-/*!40000 ALTER TABLE `productos` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 
