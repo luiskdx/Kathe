@@ -1,13 +1,13 @@
 # ************************************************************
 # Sequel Ace SQL dump
-# Versión 20039
+# Versión 20042
 #
 # https://sequel-ace.com/
 # https://github.com/Sequel-Ace/Sequel-Ace
 #
 # Equipo: 127.0.0.1 (MySQL 5.7.34)
 # Base de datos: db_reciclaje
-# Tiempo de generación: 2022-11-16 22:11:49 +0000
+# Tiempo de generación: 2022-11-17 00:06:11 +0000
 # ************************************************************
 
 
@@ -38,6 +38,15 @@ CREATE TABLE `cajeros` (
   UNIQUE KEY `Email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `cajeros` WRITE;
+/*!40000 ALTER TABLE `cajeros` DISABLE KEYS */;
+
+INSERT INTO `cajeros` (`id`, `nombre`, `tipo_documento`, `documento`, `telefono`, `email`, `password`, `facturas`)
+VALUES
+	(1,'Daniel Ramirez','Cédula de ciudadania','1013567456','3112357641','danielramirez@gmail.com','$2y$10$RoHsfIqNBtFi6vKkx3VKQOVFfRMTuCda6l5tkD68lLR1hWXnNmYAa','');
+
+/*!40000 ALTER TABLE `cajeros` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Volcado de tabla clientes
@@ -58,6 +67,15 @@ CREATE TABLE `clientes` (
   UNIQUE KEY `Documento` (`documento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `clientes` WRITE;
+/*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
+
+INSERT INTO `clientes` (`id`, `nombre`, `tipo_documento`, `documento`, `telefono`, `email`, `facturas`)
+VALUES
+	(1,'Alexander Briceño','Cédula de ciudadania','1233567865','3145678907','alexb1@hotmaill.com','');
+
+/*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Volcado de tabla facturas
@@ -75,6 +93,15 @@ CREATE TABLE `facturas` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `facturas` WRITE;
+/*!40000 ALTER TABLE `facturas` DISABLE KEYS */;
+
+INSERT INTO `facturas` (`id`, `id_cliente`, `id_cajero`, `numero_caja`, `id_productos`, `cantidades`)
+VALUES
+	(1,'1','1','005','1,3,5','1,1,1');
+
+/*!40000 ALTER TABLE `facturas` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Volcado de tabla productos
@@ -95,6 +122,17 @@ CREATE TABLE `productos` (
   UNIQUE KEY `Nombre` (`nombre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `productos` WRITE;
+/*!40000 ALTER TABLE `productos` DISABLE KEYS */;
+
+INSERT INTO `productos` (`id`, `nombre`, `precio`, `stock`, `empaque`, `tipo`, `reciclaje`, `imagen`)
+VALUES
+	(1,'Coca Cola','2500','50','Vidrio','Despensa','Blanco','img-productos/coca-cola.jpg'),
+	(3,'Huevos','15000','10','Carton','Despensa','Blanco','img-productos/huevos.jpg'),
+	(5,'Whisky','85000','2','Vidrio','Licores','Blanco','img-productos/Whisky.jpg');
+
+/*!40000 ALTER TABLE `productos` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 
